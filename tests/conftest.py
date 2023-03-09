@@ -51,3 +51,5 @@ def pytest_runtest_makereport(item: Item, call: CallInfo):  # noqa
     # set a report attribute for each phase of a call, which can
     # be "setup", "call", "teardown"
     setattr(item, 'result_of_' + result_of_.when, result_of_)
+
+
