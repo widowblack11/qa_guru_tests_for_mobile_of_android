@@ -1,30 +1,22 @@
-from selene import have, be
+
+import allure
+from appium.webdriver.common.appiumby import AppiumBy
+from selene import have
 from selene.support.shared import browser
-from allure import step as title
 
-from mobile_tests_lesson_13.model import app
-
-
-def test_search():
-    app.given_opened()
-
-    with title('Search for content'):
-        browser.element('Search Wikipedia').tap()
-        browser.element('#search_src_text').type('BrowserStack')
-
-    with title('Content should be found'):
-        browser.all('#page_list_item_title').should(have.size_greater_than(0))
-        browser.element('«Software company based in India»').should(be.visible)
+text_title = (AppiumBy.ID, "org.wikipedia.alpha:id/primaryTextView")
+btn_continue = (AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_forward_button")
 
 
-def test_search_is_efficient_enough_to_find_selene_as_python_package():
-    app.given_opened()
-
-    with title('Search for content'):
-        browser.element('Search Wikipedia').tap()
-        browser.element('#search_src_text').type('Selene')
-
-    with title('Content should be found'):
-        browser.all('#page_list_item_title').first.should(
-            have.text('User-oriented Web UI browser tests in Python')
-        )
+def test_onboarding_screen():
+    with allure.step('Проверка стартового экрана'):
+        browser.element(text_title).should(have.text("The Free Encyclopedia"))
+        browser.element(btn_continue).click()
+    with allure.step('Проверка перехода к второму экрана'):
+        browser.element(text_title).should(have.text("New ways to explore"))
+        browser.element(btn_continue).click()
+    with allure.step('Проверка перехода к третьему экрану'):
+        browser.element(text_title).should(have.exact_text("Reading lists with sync"))
+        browser.element(btn_continue).click()
+    with allure.step('Проверка перехода к четвертому экрана'):
+        browser.element(text_title).should(have.text("Send anonymous data"))
