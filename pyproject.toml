@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "mobile-tests-lesson-13"
+name = "qa-guru-tests-for-mobile-of-android-"
 version = "0.1.0"
-description = "mobile end-to-end testing on browserstack with selene + appium + pytest"
-authors = ["yashaka <yashaka@gmail.com>"]
-license = "MIT"
-packages = [{include = "mobile_tests_lesson_13"}]
+description = ""
+authors = ["widowblack11 <oksana.prokopenko16@gmail.com>"]
+readme = "README.md"
+packages = [{include = "qa_guru_tests_for_mobile_of_android_"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
