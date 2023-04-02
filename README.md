@@ -22,8 +22,8 @@
 <br>
 
 ### Тесты можно запускать в разных вариациях: 
-* Для запуск на эмуляторе в терминале необходимо выполнить команду: <env -S "context=emulation" pytset .>
-* Для запуск в browserstack(указав соответсвующее креды в конфиге): <env -S "context=emulation" pytset .>
+* Для запуска на эмуляторе в терминале необходимо выполнить команду: <env -S "context=emulation" pytset .>
+* Для запуска в browserstack(указав соответсвующее креды в конфиге): <env -S "context=emulation" pytset .>
 * Для запуска на подключенном реальном устройстве: <env -S "context=real" pytset .>
 
 ### <img width="3%" title="Jenkins" src="https://avatars.githubusercontent.com/u/2520748?v=4"> [Запуск проекта в Jenkins](https://jenkins.autotests.cloud/user/oksana/builds)
