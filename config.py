@@ -2,13 +2,13 @@ import pydantic
 from appium.options.android import UiAutomator2Options
 from typing import Literal, Optional
 
-from mobile_tests_lesson_13 import utils
+from wikipedia import utils
 
 EnvContext = Literal['emulation', 'real', 'browserstack']
 
 
 class Settings(pydantic.BaseSettings):
-    context: EnvContext = 'emulation'
+    context: EnvContext = 'browserstack'
 
     # --- Appium Capabilities ---
     platformName: str = None

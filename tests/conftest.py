@@ -3,12 +3,13 @@ import allure_commons
 import pytest
 from _pytest.nodes import Item
 from _pytest.runner import CallInfo
+from appium.webdriver.common.appiumby import AppiumBy
 from selene.support.shared import browser
 from selene import support
 from appium import webdriver
 
 import config
-from mobile_tests_lesson_13 import utils
+from wikipedia import utils
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -53,3 +54,13 @@ def pytest_runtest_makereport(item: Item, call: CallInfo):  # noqa
     setattr(item, 'result_of_' + result_of_.when, result_of_)
 
 
+@pytest.fixture()
+def skip_onboarding():
+    with allure.step('Пропустить онбординг'):
+        browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/fragment_onboarding_skip_button')).click()
+
+
+@pytest.fixture(scope='session', autouse=True)
+def patch_selene():
+    import wikipedia.utils.selene.patch_selector_strategy  # noqa
+    import wikipedia.utils.selene.patch_element_mobile_commands  # noqa
